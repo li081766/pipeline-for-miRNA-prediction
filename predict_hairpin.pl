@@ -28,8 +28,7 @@ for my $key ( sort keys %hash ){
 	open OUT, ">$out/$key.fa" || die "$!\n";
 	print OUT ">$key\n$hash{$key}\n";
 	close OUT;
-	`/Software/miRNAFoldExecutable/miRNAFold -s $out/$key.fa -L 100 -parameter Software/miRNAFoldExecutable/DATA/DEFAULT.DAT
- -o $out/$key.fa.miRNAFold.out`;
+	`/Software/miRNAFoldExecutable/miRNAFold -s $out/$key.fa -L 100 -parameter Software/miRNAFoldExecutable/DATA/DEFAULT.DAT -o $out/$key.fa.miRNAFold.out`;
 }
 
 

@@ -5,7 +5,7 @@ This pipeline is used for prediciton for miRNA in genome, invoking blastn, miRNA
 ```
 /Software/blast/bin/makeblastdb -dbtype nucl -in genome.hardmasked.fa -parse_seqids
 
-/Software/blast/bin/blastn -task blastn-short -db genome.hardmasked.fa -query migratory_locust.miRNA.mature.fa -num_threads 4 -outfmt 6 -out miRNA.mature.fa.blastn.m8 -ungapped -penalty -1 -reward 1
+/Software/blast/bin/blastn -task blastn-short -db genome.hardmasked.fa -query miRNA.mature.fa -num_threads 4 -outfmt 6 -out miRNA.mature.fa.blastn.m8 -ungapped -penalty -1 -reward 1
 
 perl filter_m8.pl miRNA.mature.fa.blastn.m8 miRNA.mature.fa >miRNA.mature.fa.blastn.filter.m8
 

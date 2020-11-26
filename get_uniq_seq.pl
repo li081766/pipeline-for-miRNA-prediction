@@ -145,23 +145,17 @@ for my $seq ( sort keys %$Hits ){
 				$downstream = substr($Genome{$seq}, $end - 111, 110);
 				my $premature = $upstream.$mirna.$downstream;
 				$premature = Complement_Reverse($premature) if $strand eq "-";
-				print ">$Uniq{$key}[2][0]\t$seq:$start-$end:$Uniq{$key}[0]-$Uniq{$key}[1]:$strand\n" if $Uniq{$key}[0] < $Uniq{$key}[1]
-;
-				print ">$Uniq{$key}[2][0]\t$seq:$start-$end:$Uniq{$key}[1]-$Uniq{$key}[0]:$strand\n" if $Uniq{$key}[0] > $Uniq{$key}[1]
-;
+				print ">$Uniq{$key}[2][0]\t$seq:$start-$end:$Uniq{$key}[0]-$Uniq{$key}[1]:$strand\n" if $Uniq{$key}[0] < $Uniq{$key}[1];
+				print ">$Uniq{$key}[2][0]\t$seq:$start-$end:$Uniq{$key}[1]-$Uniq{$key}[0]:$strand\n" if $Uniq{$key}[0] > $Uniq{$key}[1];
 				print "$premature\n";
 				if( $start == 1 && $end + 110 < length($Genome{$seq}) ){
-					print OUT "$seq\t$start\t$end\t$strand\t$Uniq{$key}[0]\t$Uniq{$key}[1]\tYes\t-\t", join(";", @{$Uniq{$key}[2]})
-, "\n";
+					print OUT "$seq\t$start\t$end\t$strand\t$Uniq{$key}[0]\t$Uniq{$key}[1]\tYes\t-\t", join(";", @{$Uniq{$key}[2]}), "\n";
 				}elsif( $start == 1 && $end + 110 > length($Genome{$seq}) ){
-					print OUT "$seq\t$start\t$end\t$strand\t$Uniq{$key}[0]\t$Uniq{$key}[1]\tYes\tYes\t", join(";", @{$Uniq{$key}[2]
-}), "\n";
+					print OUT "$seq\t$start\t$end\t$strand\t$Uniq{$key}[0]\t$Uniq{$key}[1]\tYes\tYes\t", join(";", @{$Uniq{$key}[2]}), "\n";
 				}elsif( $start > 1 && $end + 110 > length($Genome{$seq}) ){
-					print OUT "$seq\t$start\t$end\t$strand\t$Uniq{$key}[0]\t$Uniq{$key}[1]\t-\tYes\t", join(";", @{$Uniq{$key}[2]})
-, "\n";
+					print OUT "$seq\t$start\t$end\t$strand\t$Uniq{$key}[0]\t$Uniq{$key}[1]\t-\tYes\t", join(";", @{$Uniq{$key}[2]}), "\n";
 				}else{
-					print OUT "$seq\t$start\t$end\t$strand\t$Uniq{$key}[0]\t$Uniq{$key}[1]\t-\t-\t", join(";", @{$Uniq{$key}[2]}),
-"\n";
+					print OUT "$seq\t$start\t$end\t$strand\t$Uniq{$key}[0]\t$Uniq{$key}[1]\t-\t-\t", join(";", @{$Uniq{$key}[2]}), "\n";
 				}
 			}
 		}

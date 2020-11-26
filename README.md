@@ -21,4 +21,4 @@ perl with_gene_info.pl miRNA.mature.fa.blastn.filter.m8.nt110.filter_N.premature
 
 perl select_seq.pl miRNA.mature.fa.blastn.filter.m8.nt110.filter_N.premature.best.info.with_gene.xls miRNA.mature.fa.blastn.filter.m8.nt110.filter_N.premature.best.info.xls --except | awk '{print $0"\tintergenic"}' >>miRNA.mature.fa.blastn.filter.m8.nt110.filter_N.premature.best.info.with_gene.xls
 
-less mmiRNA.mature.fa.blastn.filter.m8.nt110.filter_N.premature.best.info.with_gene.xls | grep -v 'exon' | sort -k2,2 -k3n >miRNA.final.xls
+less miRNA.mature.fa.blastn.filter.m8.nt110.filter_N.premature.best.info.with_gene.xls | grep -v 'exon' | sort -k2,2 -k3n >miRNA.final.xls
